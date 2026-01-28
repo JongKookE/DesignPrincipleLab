@@ -1,6 +1,6 @@
 package com.subject.codesmellsolver.problem;
 
-import com.subject.codesmellsolver.problem.seq02_srp_user.UserService;
+import com.subject.codesmellsolver.problem.seq03_ocp_strategy.S3UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -9,11 +9,10 @@ import org.springframework.stereotype.Component;
 @RequiredArgsConstructor
 public class AppRunner implements CommandLineRunner {
 
-    // seq02
-    private final UserService userService;
+    private final S3UserService s3UserService;
 
     @Override
     public void run(String... args) {
-        userService.registerUser("email@google.com", "password", "lorem ipsum");
+        s3UserService.registerUser("이건 메시지입니다.","SMTP");
     }
 }

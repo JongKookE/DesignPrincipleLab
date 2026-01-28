@@ -1,4 +1,4 @@
-package com.subject.codesmellsolver;
+package com.subject.codesmellsolver.seq03;
 
 import com.subject.codesmellsolver.problem.seq03_ocp_strategy.S3NotificationSender;
 import com.subject.codesmellsolver.problem.seq03_ocp_strategy.S3UserService;

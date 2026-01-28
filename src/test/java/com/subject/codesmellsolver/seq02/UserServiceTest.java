@@ -12,7 +12,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 public class UserServiceTest {
@@ -63,6 +62,7 @@ public class UserServiceTest {
         String name = "BadUser";
 
         given(userRepository.existsByEmail(any())).willReturn(true);
+
         Assertions.assertThatThrownBy(() -> userService.registerUser(email, rawPw, name)).isInstanceOf(DuplicateUserException.class)
                 .hasMessage("중복된 이메일입니다.");
 

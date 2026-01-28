@@ -4,16 +4,20 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.Map;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
 public class S3UserService {
 //    private final UserRepository userRepository;
-    private final Map<String, S3NotificationSender> notificationSenderHashMap;
+    private final Map<String, S3NotificationSender> notificationSenders;
 
     public void registerUser(String message, String notiType) {
         // ... (회원 저장 로직 생략) ...
-
-        notificationSenderHashMap.get(notiType).send(message);
+        // Optional.of -> null이 들어올 수 없음 Optional.ofNullable -> null이 들어올수도 있음
+        Optional<S3NotificationSender> notificationSender = Optional.ofNullable(notificationSenders.get(notiType));
+        notificationSender
+                .orElseThrow(() -> new IllegalArgumentException("지원하지 않는 알림타입입니다."))
+                .send(message);
     }
 }

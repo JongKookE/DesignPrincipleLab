@@ -4,7 +4,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class SmtpSender {
-    void sendToSMTPServer(String email) {
+    public void sendToSMTPServer(String email) {
         System.out.println("SMTP 서버 연결...");
         System.out.println("To: " + email + " | Body: 가입을 환영합니다!");
     }

@@ -4,10 +4,10 @@ import lombok.Getter;
 
 @Getter
 public enum S3NotificationType {
-    SMS("SMS"),
-    KAKAO("KAKAO"),
-    EMAIL("EMAIL"),
-    SLACK("SLACK");
+    SMS("s3SmsSender"),
+    KAKAO("s3KakaoSender"),
+    EMAIL("s3EmailSender"),
+    SLACK("s3SlackSender");
 
     private final String type;
 

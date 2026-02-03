@@ -1,5 +1,6 @@
 package com.subject.codesmellsolver.problem.seq06_global_exception_handling;
 
+import com.subject.codesmellsolver.problem.seq06_global_exception_handling.domain.dto.ApiResponse;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,19 +17,7 @@ public class OrderController {
     }
 
     @PostMapping
-    public ResponseEntity<Object> createOrder(@RequestBody OrderRequest request) {
-        try {
-            Long orderId = orderService.placeOrder(request.productId(), request.quantity());
-            return ResponseEntity.ok(orderId);
-        } catch (IllegalArgumentException e) {
-            // 상품이 없을 때의 처리
-            return ResponseEntity.status(404).body("Product Not Found: " + e.getMessage());
-        } catch (IllegalStateException e) {
-            // 재고가 없을 때의 처리
-            return ResponseEntity.status(400).body("Sold Out: " + e.getMessage());
-        } catch (Exception e) {
-            // 알 수 없는 에러
-            return ResponseEntity.status(500).body("Internal Error occurred");
-        }
+    public ResponseEntity<ApiResponse<OrderRequest>> createOrder(@RequestBody OrderRequest request) {
+        return ResponseEntity.ok(ApiResponse.success(orderService.placeOrder(-1L, 100)));
     }
 }

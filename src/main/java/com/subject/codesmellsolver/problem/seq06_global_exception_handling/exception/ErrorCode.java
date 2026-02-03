@@ -2,14 +2,15 @@ package com.subject.codesmellsolver.problem.seq06_global_exception_handling.exce
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import org.springframework.http.HttpStatus;
 
 @Getter
 @AllArgsConstructor
 public enum ErrorCode {
-    EntityNotFoundException("EntityNotFoundException", 404, "찾을수없습니다."),
-    OutOfStockException("OutOfStockException", 400, "만료되었습니다.");
+    PRODUCT_NOT_FOUND(HttpStatus.NOT_FOUND, "P001", "해당 상품을 찾을 수 없습니다."),
+    OUT_OF_STOCK(HttpStatus.BAD_REQUEST, "S001", "재고가 부족합니다.");
 
-    final private String name;
-    final private int code;
-    final private String message;
+    private final HttpStatus httpStatus;
+    private final String code;
+    private final String message;
 }

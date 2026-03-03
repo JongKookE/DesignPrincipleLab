@@ -1,4 +1,4 @@
-package com.subject.codesmellsolver.problem.seq05_decoupling_spring_event;
+package com.subject.codesmellsolver.lab;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -14,15 +14,9 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class S5Member {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class LabUser {
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
-    private String email;
 
-    public S5Member(String name, String email){
-        this.name = name;
-        this.email = email;
-    }
+    private String name;
 }

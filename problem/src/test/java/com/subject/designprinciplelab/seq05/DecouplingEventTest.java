@@ -1,17 +1,19 @@
 package com.subject.designprinciplelab.seq05;
 
-import com.subject.designprinciplelab.problem.seq05_decoupling_spring_event.*;
+import com.subject.designprinciplelab.problem.seq05_decoupling_spring_event.S5MemberJoinedEvent;
+import com.subject.designprinciplelab.problem.seq05_decoupling_spring_event.S5MemberRepository;
+import com.subject.designprinciplelab.problem.seq05_decoupling_spring_event.S5MemberService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.BDDMockito;
+import org.mockito.ArgumentCaptor;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.context.ApplicationEventPublisher;
 
-import static org.mockito.ArgumentMatchers.any;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @ExtendWith(MockitoExtension.class)
 public class DecouplingEventTest {
@@ -23,19 +25,20 @@ public class DecouplingEventTest {
 
     @InjectMocks
     S5MemberService s5MemberService;
-    
+
     @Test
-    @DisplayName("ApplicationEventPublisher로 이벤트 처리를 수행하고 있는지 테스트")
-    public void eventPublisherIsRunning(){
+    @DisplayName("join 호출 시 회원가입 이벤트를 발행한다")
+    public void eventPublisherIsRunning() {
         String name = "Mock";
         String email = "Mock@ito";
-        S5Member member = new S5Member(name, email);
-        S5MemberJoinedEvent event = new S5MemberJoinedEvent(name, email);
-        BDDMockito.given(s5MemberRepository.save(any(S5Member.class))).willReturn(member);
 
         s5MemberService.join(name, email);
-        Mockito.verify(s5MemberRepository, Mockito.times(1)).save(any(S5Member.class));
-        Mockito.verify(eventPublisher, Mockito.times(1)).publishEvent(any(S5MemberJoinedEvent.class));
-    }
 
+        ArgumentCaptor<S5MemberJoinedEvent> eventCaptor = ArgumentCaptor.forClass(S5MemberJoinedEvent.class);
+        Mockito.verify(eventPublisher, Mockito.times(1)).publishEvent(eventCaptor.capture());
+
+        S5MemberJoinedEvent event = eventCaptor.getValue();
+        assertEquals(name, event.name());
+        assertEquals(email, event.email());
+    }
 }

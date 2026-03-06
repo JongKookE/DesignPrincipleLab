@@ -1,5 +1,6 @@
-package com.subject.designprinciplelab.problem.seq05_decoupling_spring_event;
+package com.subject.designprinciplelab.problem.seq05_decoupling_spring_event.service;
 
+import com.subject.designprinciplelab.problem.seq05_decoupling_spring_event.S5MemberJoinedEvent;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.event.EventListener;
 import org.springframework.scheduling.annotation.Async;

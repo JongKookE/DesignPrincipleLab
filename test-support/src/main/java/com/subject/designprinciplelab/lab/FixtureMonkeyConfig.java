@@ -1,4 +1,4 @@
-package com.subject.designprinciplelab;
+package com.subject.designprinciplelab.lab;
 
 import com.navercorp.fixturemonkey.FixtureMonkey;
 import com.navercorp.fixturemonkey.api.introspector.BeanArbitraryIntrospector;
@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 public class FixtureMonkeyConfig {
 
     @Bean
-    public FixtureMonkey fixtureMonkey(){
+    public FixtureMonkey fixtureMonkey() {
         return FixtureMonkey
                 .builder()
                 .defaultNotNull(true)

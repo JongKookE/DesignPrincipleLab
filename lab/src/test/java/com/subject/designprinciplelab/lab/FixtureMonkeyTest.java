@@ -1,7 +1,6 @@
 package com.subject.designprinciplelab.lab;
 
 import com.navercorp.fixturemonkey.FixtureMonkey;
-import com.subject.designprinciplelab.FixtureMonkeyConfig;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;

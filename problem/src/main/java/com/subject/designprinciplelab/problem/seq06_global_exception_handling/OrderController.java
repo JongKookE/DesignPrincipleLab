@@ -18,6 +18,6 @@ public class OrderController {
 
     @PostMapping
     public ResponseEntity<ApiResponse<OrderRequest>> createOrder(@RequestBody OrderRequest request) {
-        return ResponseEntity.ok(ApiResponse.success(orderService.placeOrder(-1L, 100)));
+        return ResponseEntity.ok(ApiResponse.success(orderService.placeOrder(request)));
     }
 }

@@ -9,16 +9,16 @@ import org.springframework.stereotype.Service;
 @Service
 @RequiredArgsConstructor
 public class OrderService {
-    public OrderRequest placeOrder(Long productId, int quantity) {
+    public OrderRequest placeOrder(OrderRequest orderRequest) {
+
+        Long productId = orderRequest.productId();
+        int quantity = orderRequest.quantity();
+
         // 상품 조회 로직 (가정)
-        if (productId == null || productId <= 0) {
-            throw new EntityNotFoundException(ErrorCode.PRODUCT_NOT_FOUND);
-        }
+        if (productId == null || productId <= 0) throw new EntityNotFoundException(ErrorCode.PRODUCT_NOT_FOUND);
 
         // 재고 확인 로직 (가정)
-        if (quantity > 100) {
-            throw new OutOfStockException(ErrorCode.OUT_OF_STOCK);
-        }
+        if (quantity <= 0) throw new OutOfStockException(ErrorCode.OUT_OF_STOCK);
 
         // 주문 생성 로직...
         return new OrderRequest(1L, 20);

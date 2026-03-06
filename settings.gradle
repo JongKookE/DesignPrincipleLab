@@ -1,2 +1,2 @@
 rootProject.name = 'DesignPrincipleLab'
-include 'app', 'lab', 'problem'
+include 'app', 'lab', 'problem', 'test-support'

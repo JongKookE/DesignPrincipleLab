@@ -13,8 +13,8 @@ public class S5MemberService {
 
     @Transactional
     public void join(String name, String email) {
-        S5Member s5Member = s5MemberRepository.save(new S5Member(name, email));
-
+        // @EventListener 어노테이션을 붙인 메소드 중에서 S5MemberJoinedEvent를 파라미터로 받는 메소드 호출
+        // 비동기 작업이기 때문에 순서는 보장하지 못한다.
         eventPublisher.publishEvent(new S5MemberJoinedEvent(name, email));
     }
 }

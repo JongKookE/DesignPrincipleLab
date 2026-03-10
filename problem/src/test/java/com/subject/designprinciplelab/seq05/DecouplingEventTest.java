@@ -28,7 +28,7 @@ public class DecouplingEventTest {
 
     @Test
     @DisplayName("join 호출 시 회원가입 이벤트를 발행한다")
-    public void eventPublisherIsRunning() {
+    public void join_publishMemberJoinedEvent() {
         String name = "Mock";
         String email = "Mock@ito";
 

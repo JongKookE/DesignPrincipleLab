@@ -1,7 +1,5 @@
-package com.subject.designprinciplelab.seq04;
+package com.subject.designprinciplelab.problem.seq04_aop;
 
-import com.subject.designprinciplelab.problem.seq04_aop.S4TestService;
-import com.subject.designprinciplelab.problem.ProblemTestApplication;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -11,7 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.system.CapturedOutput;
 import org.springframework.boot.test.system.OutputCaptureExtension;
 
-@SpringBootTest(classes = ProblemTestApplication.class)
+@SpringBootTest(classes = S4AopTestApplication.class)
 @ExtendWith(OutputCaptureExtension.class)
 public class S4AopContextTest {
     @Autowired

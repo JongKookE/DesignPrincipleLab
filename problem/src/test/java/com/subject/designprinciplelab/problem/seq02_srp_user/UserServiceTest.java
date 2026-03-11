@@ -1,6 +1,5 @@
-package com.subject.designprinciplelab.seq02;
+package com.subject.designprinciplelab.problem.seq02_srp_user;
 
-import com.subject.designprinciplelab.problem.seq02_srp_user.*;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

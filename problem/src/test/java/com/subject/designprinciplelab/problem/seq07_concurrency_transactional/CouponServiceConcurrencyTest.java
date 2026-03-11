@@ -1,4 +1,4 @@
-package com.subject.designprinciplelab.seq07;
+package com.subject.designprinciplelab.problem.seq07_concurrency_transactional;
 
 import com.subject.designprinciplelab.problem.seq07_concurrency_transactional.domain.Coupon;
 import com.subject.designprinciplelab.problem.seq07_concurrency_transactional.repository.CouponIssueRepository;
@@ -17,7 +17,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@SpringBootTest(classes = CouponServiceTestApplication.class)
+@SpringBootTest
 class CouponServiceConcurrencyTest {
     private long couponId;
     private int totalQuantity;

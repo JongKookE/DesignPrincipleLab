@@ -1,12 +1,8 @@
-package com.subject.designprinciplelab.seq06;
+package com.subject.designprinciplelab.problem.seq06_global_exception_handling;
 
 import com.navercorp.fixturemonkey.ArbitraryBuilder;
 import com.navercorp.fixturemonkey.FixtureMonkey;
 import com.navercorp.fixturemonkey.api.introspector.ConstructorPropertiesArbitraryIntrospector;
-import com.subject.designprinciplelab.problem.seq06_global_exception_handling.GlobalExceptionHandler;
-import com.subject.designprinciplelab.problem.seq06_global_exception_handling.OrderController;
-import com.subject.designprinciplelab.problem.seq06_global_exception_handling.OrderRequest;
-import com.subject.designprinciplelab.problem.seq06_global_exception_handling.OrderService;
 import com.subject.designprinciplelab.problem.seq06_global_exception_handling.exception.ErrorCode;
 import com.subject.designprinciplelab.problem.seq06_global_exception_handling.exception.OutOfStockException;
 import org.assertj.core.api.Assertions;

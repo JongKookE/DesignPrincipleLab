@@ -1,6 +1,5 @@
-package com.subject.designprinciplelab.seq03;
+package com.subject.designprinciplelab.problem.seq03_ocp_strategy;
 
-import com.subject.designprinciplelab.problem.seq03_ocp_strategy.*;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

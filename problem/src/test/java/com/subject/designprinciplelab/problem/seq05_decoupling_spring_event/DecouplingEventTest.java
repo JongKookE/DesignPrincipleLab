@@ -1,8 +1,5 @@
-package com.subject.designprinciplelab.seq05;
+package com.subject.designprinciplelab.problem.seq05_decoupling_spring_event;
 
-import com.subject.designprinciplelab.problem.seq05_decoupling_spring_event.S5MemberJoinedEvent;
-import com.subject.designprinciplelab.problem.seq05_decoupling_spring_event.S5MemberRepository;
-import com.subject.designprinciplelab.problem.seq05_decoupling_spring_event.S5MemberService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

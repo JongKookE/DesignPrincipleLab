@@ -1,6 +1,5 @@
-package com.subject.designprinciplelab.seq04;
+package com.subject.designprinciplelab.problem.seq04_aop;
 
-import com.subject.designprinciplelab.problem.seq04_aop.TrackTimeAspect;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.junit.jupiter.api.DisplayName;

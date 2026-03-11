@@ -13,7 +13,7 @@ import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@SpringJUnitConfig(com.subject.designprinciplelab.lab.fixture.FixtureMonkeyConfig.class)
+@SpringJUnitConfig(com.subject.designprinciplelab.lab.FixtureMonkeyConfig.class)
 class FixtureMonkeyTest {
 
     @Autowired

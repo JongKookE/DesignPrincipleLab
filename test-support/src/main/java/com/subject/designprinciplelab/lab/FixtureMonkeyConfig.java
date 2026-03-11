@@ -1,4 +1,4 @@
-package com.subject.designprinciplelab.lab;
+package com.subject.designprinciplelab.lab.fixture;
 
 import com.navercorp.fixturemonkey.FixtureMonkey;
 import com.navercorp.fixturemonkey.api.introspector.BeanArbitraryIntrospector;

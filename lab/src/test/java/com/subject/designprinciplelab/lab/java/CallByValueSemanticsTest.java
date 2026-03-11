@@ -1,4 +1,4 @@
-package com.subject.designprinciplelab.lab;
+package com.subject.designprinciplelab.lab.java;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;

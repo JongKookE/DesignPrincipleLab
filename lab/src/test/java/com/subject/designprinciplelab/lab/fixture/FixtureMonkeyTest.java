@@ -1,8 +1,7 @@
-package com.subject.designprinciplelab.lab;
+package com.subject.designprinciplelab.lab.fixture;
 
 import com.navercorp.fixturemonkey.FixtureMonkey;
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import org.junit.jupiter.api.Assertions;
@@ -10,12 +9,11 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@RequiredArgsConstructor
-@SpringBootTest(classes = FixtureMonkeyConfig.class)
+@SpringJUnitConfig(com.subject.designprinciplelab.lab.fixture.FixtureMonkeyConfig.class)
 class FixtureMonkeyTest {
 
     @Autowired

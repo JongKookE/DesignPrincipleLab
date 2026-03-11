@@ -1,4 +1,4 @@
-package com.subject.designprinciplelab.lab;
+package com.subject.designprinciplelab.lab.transactional;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -14,7 +14,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class LabUser {
+public class TransactionLabUser {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 

@@ -1,0 +1,9 @@
+reviews:
+  profile: strict
+
+language: ko
+
+early_access: true
+
+chat:
+  auto_reply: true

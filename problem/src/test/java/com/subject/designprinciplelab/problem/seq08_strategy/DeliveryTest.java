@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import static org.assertj.core.api.Assertions.assertThat;
 @SpringBootTest
 public class DeliveryTest {
     private Country country;
@@ -23,7 +24,7 @@ public class DeliveryTest {
         double expressKoreaFee = 5_000;
         double fee = deliveryService.calculateDeliveryFee(type, 1.0, country);
 
-        org.assertj.core.api.Assertions.assertThat(fee).isEqualTo(expressKoreaFee);
+        assertThat(fee).isEqualTo(expressKoreaFee);
     }
 
     @Test
@@ -34,7 +35,7 @@ public class DeliveryTest {
         double standardJapanFee = weight * 1.2 + 15000;
         double fee = deliveryService.calculateDeliveryFee(type, weight, country);
 
-        org.assertj.core.api.Assertions.assertThat(fee).isEqualTo(standardJapanFee);
+        assertThat(fee).isEqualTo(standardJapanFee);
     }
 
     @Test
@@ -45,6 +46,6 @@ public class DeliveryTest {
         double ponyExpressUSAdFee = weight * 10.0 + 100_000;
         double fee = deliveryService.calculateDeliveryFee(type, weight, country);
 
-        org.assertj.core.api.Assertions.assertThat(fee).isEqualTo(ponyExpressUSAdFee);
+        assertThat(fee).isEqualTo(ponyExpressUSAdFee);
     }
 }

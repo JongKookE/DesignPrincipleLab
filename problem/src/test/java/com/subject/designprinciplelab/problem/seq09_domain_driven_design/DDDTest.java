@@ -6,7 +6,7 @@ import com.navercorp.fixturemonkey.api.introspector.ConstructorPropertiesArbitra
 import com.subject.designprinciplelab.problem.seq09_domain_driven_design.domain.OrderRecord;
 import com.subject.designprinciplelab.problem.seq09_domain_driven_design.domain.OrderStatus;
 import com.subject.designprinciplelab.problem.seq09_domain_driven_design.repository.OrderRepository;
-import com.subject.designprinciplelab.problem.seq09_domain_driven_design.service.OrderService;
+import com.subject.designprinciplelab.problem.seq09_domain_driven_design.service.S9OrderService;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -25,7 +25,7 @@ import static org.mockito.BDDMockito.given;
 public class DDDTest {
 
     @InjectMocks
-    OrderService orderService;
+    S9OrderService orderService;
 
     @Mock
     OrderRepository orderRepository;
@@ -46,11 +46,9 @@ public class DDDTest {
     }
 
     @Test
-    public void executeCancelFail_ForAlreadyCancelOrShipped() throws Exception {
+    public void executeCancelFail_ForAlreadyCancelOrShipped() {
         given(orderRepository.findById(any())).willReturn(Optional.of(orderRecord.toEntity()));
         Assertions.assertThatThrownBy(() -> orderService.cancelOrder(orderRecord.id())).isInstanceOf(RuntimeException.class)
                                  .hasMessage("환불 불가능 상태");
     }
-
-
 }

@@ -17,3 +17,19 @@ spring:
     console:
       enabled: true
       path: /h2-console
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      pg-circuit:
+        recordExceptions:
+          - java.util.concurrent.TimeoutException
+          - org.springframework.web.client.HttpServerErrorException # 500 에러는 실패로 기록
+        ignoreExceptions:
+          - org.springframework.web.client.HttpClientErrorException # 400 에러는 무시 (실패 카운트 X)
+        sliding-window-type: COUNT_BASED
+        minimumNumberOfCalls: 5
+        slidingWindowSize: 10              # 최근 10개의 요청을 감시
+        failureRateThreshold: 50           # 실패율 50% 이상 시 Open
+        waitDurationInOpenState: 10000     # Open 상태 유지 시간(10초 후 Half-open)
+        permittedNumberOfCallsInHalfOpenState: 3 # Half-open 상태에서 시도할 횟수
